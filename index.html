@@ -11,38 +11,59 @@
     <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
 
     <title>Encoding tools</title>
+
+    <style>
+      :root {
+        --muted-color: #73828c;
+      }
+    </style>
   </head>
   <body>
-    <main class="container">
-      <div role="document">
-        <div id="app"></div>
-        <script type="text/x-template" id="page-contents">
-          <section>
-            <h2>HTML Encode</h2>
-            <p>Decoded</p>
-            <textarea v-on:input="encode" v-model="decoded"></textarea>
-            <p>Encoded</p>
-            <textarea v-on:input="decode" v-model="encoded"></textarea>
-          </section>
-        </script>
+    <div id="app"></div>
+    <script type="text/x-template" id="page-contents">
+      <div>
+        <header class="container">
+          <nav>
+            <ul>
+              <li>Tool:</li>
+              <li><a @click="setTool('#html')" href="#html">HTML</a></li>
+              <li><a @click="setTool('#url')" href="#url">URL</a></li>
+            </ul>
+          </nav>
+        </header>
+        <main class="container">
+          <div role="document">
+            <component v-bind:is="component"></component>
+          </div>
+        </main>
       </div>
-    </main>
+    </script>
     <script type="module">
+      import HtmlEscape from './html-escape.js';
+      import UrlEscape from './url-escape.js';
+
       var app = new Vue({
         el: '#app',
         template: '#page-contents',
+        components: {
+          'html-escape': HtmlEscape,
+          'url-escape': UrlEscape
+        },
         data: function() {
           return {
-            encoded: "",
-            decoded: ""
+            component: 'html-escape'
           }
         },
+        mounted: function() {
+          this.setTool(location.hash)
+        },
         methods: {
-          encode: function() {
-            this.encoded = $('<textarea/>').text(this.decoded).html()
-          },
-          decode: function() {
-            this.decoded = $('<textarea/>').html(this.encoded).text()
+          setTool: function(tool) {
+            const components = {
+              '#url': 'url-escape',
+              '#html': 'html-escape'
+            }
+            this.component = components[tool]
           }
         }
       })
