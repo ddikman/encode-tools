@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js"></script>
+
+    <title>Encoding tools</title>
+  </head>
+  <body>
+    <main class="container">
+      <div role="document">
+        <div id="app"></div>
+        <script type="text/x-template" id="page-contents">
+          <section>
+            <h2>HTML Encode</h2>
+            <p>Decoded</p>
+            <textarea v-on:input="encode" v-model="decoded"></textarea>
+            <p>Encoded</p>
+            <textarea v-on:input="decode" v-model="encoded"></textarea>
+          </section>
+        </script>
+      </div>
+    </main>
+    <script type="module">
+      var app = new Vue({
+        el: '#app',
+        template: '#page-contents',
+        data: function() {
+          return {
+            encoded: "",
+            decoded: ""
+          }
+        },
+        methods: {
+          encode: function() {
+            this.encoded = $('<textarea/>').text(this.decoded).html()
+          },
+          decode: function() {
+            this.decoded = $('<textarea/>').html(this.encoded).text()
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
