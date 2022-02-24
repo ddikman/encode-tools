@@ -63,7 +63,7 @@
               '#url': 'url-escape',
               '#html': 'html-escape'
             }
-            this.component = components[tool]
+            this.component = components[tool] || 'html-escape'
           }
         }
       })
