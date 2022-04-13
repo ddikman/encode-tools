@@ -16,6 +16,15 @@
       :root {
         --muted-color: #73828c;
       }
+
+      .invalid {
+        color: var(--form-element-invalid-border-color);
+        background-image: var(--icon-invalid);
+        background-position: left;
+        background-position-y: 4px;
+        padding-left: 2rem;
+      }
+
     </style>
   </head>
   <body>
@@ -28,6 +37,7 @@
               <li>Tool:</li>
               <li><a @click="setTool('#html')" href="#html">HTML</a></li>
               <li><a @click="setTool('#url')" href="#url">URL</a></li>
+              <li><a @click="setTool('#base64')" href="#base64">BASE64</a></li>
             </ul>
           </nav>
         </header>
@@ -41,13 +51,15 @@
     <script type="module">
       import HtmlEscape from './html-escape.js';
       import UrlEscape from './url-escape.js';
+      import Base64 from './base64.js';
 
       var app = new Vue({
         el: '#app',
         template: '#page-contents',
         components: {
           'html-escape': HtmlEscape,
-          'url-escape': UrlEscape
+          'url-escape': UrlEscape,
+          'base64': Base64
         },
         data: function() {
           return {
@@ -61,7 +73,8 @@
           setTool: function(tool) {
             const components = {
               '#url': 'url-escape',
-              '#html': 'html-escape'
+              '#html': 'html-escape',
+              '#base64': 'base64'
             }
             this.component = components[tool] || 'html-escape'
           }
