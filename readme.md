@@ -9,3 +9,10 @@ Use it live at [https://ddikman.github.io/encode-tools/](https://ddikman.github.
 Enjoy.
 
 ![Example usage](example.gif)
+
+## Supported
+
+- BASE64
+- URLs
+- HTML
+- Unicode (same as urls)
