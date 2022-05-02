@@ -14,6 +14,10 @@ export default {
       decoded: ""
     }
   },
+  mounted: function() {
+    this.decoded = '<p>Hello</p>'
+    this.encode()
+  },
   methods: {
     encode: function() {
       this.encoded = $('<textarea/>').text(this.decoded).html()

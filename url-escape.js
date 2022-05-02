@@ -14,6 +14,10 @@ export default {
       decoded: ""
     }
   },
+  mounted: function() {
+    this.decoded = 'https://greycastle.se/'
+    this.encode()
+  },
   methods: {
     encode: function() {
       this.encoded = encodeURIComponent(this.decoded)

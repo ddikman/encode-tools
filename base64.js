@@ -16,6 +16,10 @@ export default {
       error: null
     }
   },
+  mounted: function() {
+    this.decoded = 'Hello, world!'
+    this.encode()
+  },
   methods: {
     encode: function() {
       this.error = null
