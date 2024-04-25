@@ -16,3 +16,4 @@ Enjoy.
 - URLs
 - HTML
 - Unicode (same as urls)
+- JSON
