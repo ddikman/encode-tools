@@ -39,6 +39,7 @@
               <li><a @click="setTool('#url')" href="#url">URL</a></li>
               <li><a @click="setTool('#unicode')" href="#unicode">UNICODE</a></li>
               <li><a @click="setTool('#base64')" href="#base64">BASE64</a></li>
+              <li><a @click="setTool('#json')" href="#json">JSON</a></li>
             </ul>
           </nav>
         </header>
@@ -53,6 +54,7 @@
       import HtmlEscape from './html-escape.js';
       import UrlEscape from './url-escape.js';
       import UnicodeEscape from './unicode-escape.js';
+      import JsonEscape from './json-escape.js';
       import Base64 from './base64.js';
 
       var app = new Vue({
@@ -62,7 +64,8 @@
           'html-escape': HtmlEscape,
           'url-escape': UrlEscape,
           'base64': Base64,
-          'unicode-escape': UnicodeEscape
+          'unicode-escape': UnicodeEscape,
+          'json-escape': JsonEscape
         },
         data: function() {
           return {
@@ -78,7 +81,8 @@
               '#url': 'url-escape',
               '#html': 'html-escape',
               '#base64': 'base64',
-              '#unicode': 'unicode-escape'
+              '#unicode': 'unicode-escape',
+              '#json': 'json-escape'
             }
             this.component = components[tool] || 'html-escape'
           }
