@@ -1,9 +1,9 @@
 const template = `<section>
 <h2>JSON</h2>
 <p>Unescaped (raw) json</p>
-<textarea v-on:input="encode" v-model="decoded"></textarea>
+<textarea class="half-height" v-on:input="encode" v-model="decoded"></textarea>
 <p>Escaped json</p>
-<textarea v-on:input="decode" v-model="encoded"></textarea>
+<textarea class="half-height" v-on:input="decode" v-model="encoded"></textarea>
 </section>`
 
 export default {

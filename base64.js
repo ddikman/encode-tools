@@ -1,9 +1,9 @@
 const template = `<section>
 <h2>BASE64</h2>
 <p>Decoded string</p>
-<textarea v-on:input="encode" v-model="decoded"></textarea>
+<textarea class="half-height" v-on:input="encode" v-model="decoded"></textarea>
 <p>Encoded string</p>
-<textarea v-on:input="decode" v-model="encoded"></textarea>
+<textarea class="half-height" v-on:input="decode" v-model="encoded"></textarea>
 <p class="invalid" v-if="error"><small>{{ error}}</small></p>
 </section>`
 

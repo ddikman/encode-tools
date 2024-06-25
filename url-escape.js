@@ -1,9 +1,9 @@
 const template = `<section>
 <h2>URL parameter</h2>
 <p>Unescaped (raw) url</p>
-<textarea v-on:input="encode" v-model="decoded"></textarea>
+<textarea class="half-height" v-on:input="encode" v-model="decoded"></textarea>
 <p>Escaped url</p>
-<textarea v-on:input="decode" v-model="encoded"></textarea>
+<textarea class="half-height" v-on:input="decode" v-model="encoded"></textarea>
 </section>`
 
 export default {
